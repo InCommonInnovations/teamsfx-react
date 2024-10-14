@@ -70,5 +70,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "react-native-get-random-values": "^1.11.0"
   }
 }

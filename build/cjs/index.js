@@ -3,6 +3,7 @@
 // Licensed under the MIT license.
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseWidget = exports.BaseDashboard = exports.useGraphWithCredential = exports.useGraph = exports.useTeamsUserCredential = exports.useTeamsFx = exports.useData = exports.useTeams = void 0;
+require("react-native-get-random-values");
 var useTeams_1 = require("./useTeams");
 Object.defineProperty(exports, "useTeams", { enumerable: true, get: function () { return useTeams_1.useTeams; } });
 var useData_1 = require("./useData");
