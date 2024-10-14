@@ -3,14 +3,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseDashboard = void 0;
 var tslib_1 = require("tslib");
 var react_1 = tslib_1.__importStar(require("react"));
-var react_2 = require("@fluentui/react");
 /**
  * Returns the CSS class name for the dashboard.
  * @returns The CSS class name for the dashboard.
  * @internal
  */
 function dashboardStyle(isMobile) {
-    return (0, react_2.mergeStyles)(tslib_1.__assign({ display: "grid", gap: "20px", padding: "20px", gridTemplateRows: "1fr", gridTemplateColumns: "4fr 6fr" }, (isMobile === true ? { gridTemplateColumns: "1fr", gridTemplateRows: "1fr" } : {})));
+    return (tslib_1.__assign({ display: "grid", gap: "20px", padding: "20px", gridTemplateRows: "1fr", gridTemplateColumns: "4fr 6fr" }, (isMobile === true ? { gridTemplateColumns: "1fr", gridTemplateRows: "1fr" } : {})));
 }
 /**
  * The base component that provides basic functionality to create a dashboard.
@@ -68,7 +67,7 @@ var BaseDashboard = /** @class */ (function (_super) {
      * Defines the default layout for the dashboard.
      */
     BaseDashboard.prototype.render = function () {
-        return (react_1.default.createElement("div", { ref: this.ref, className: (0, react_2.mergeStyles)(dashboardStyle(this.state.isMobile), this.styling()) }, this.layout()));
+        return (react_1.default.createElement("div", { ref: this.ref, className: (dashboardStyle(this.state.isMobile), this.styling()) }, this.layout()));
     };
     /**
      * Override this method to define the layout of the widget in the dashboard.

@@ -1,13 +1,12 @@
 import { __assign, __awaiter, __extends, __generator } from "tslib";
 import React, { Component } from "react";
-import { mergeStyles } from "@fluentui/react";
 /**
  * Returns the CSS class name for the dashboard.
  * @returns The CSS class name for the dashboard.
  * @internal
  */
 function dashboardStyle(isMobile) {
-    return mergeStyles(__assign({ display: "grid", gap: "20px", padding: "20px", gridTemplateRows: "1fr", gridTemplateColumns: "4fr 6fr" }, (isMobile === true ? { gridTemplateColumns: "1fr", gridTemplateRows: "1fr" } : {})));
+    return (__assign({ display: "grid", gap: "20px", padding: "20px", gridTemplateRows: "1fr", gridTemplateColumns: "4fr 6fr" }, (isMobile === true ? { gridTemplateColumns: "1fr", gridTemplateRows: "1fr" } : {})));
 }
 /**
  * The base component that provides basic functionality to create a dashboard.
@@ -65,7 +64,7 @@ var BaseDashboard = /** @class */ (function (_super) {
      * Defines the default layout for the dashboard.
      */
     BaseDashboard.prototype.render = function () {
-        return (React.createElement("div", { ref: this.ref, className: mergeStyles(dashboardStyle(this.state.isMobile), this.styling()) }, this.layout()));
+        return (React.createElement("div", { ref: this.ref, className: (dashboardStyle(this.state.isMobile), this.styling()) }, this.layout()));
     };
     /**
      * Override this method to define the layout of the widget in the dashboard.

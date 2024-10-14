@@ -1,20 +1,14 @@
 import { __assign, __awaiter, __extends, __generator } from "tslib";
 import React, { Component } from "react";
-import { mergeStyles, mergeStyleSets } from "@fluentui/react";
-import { tokens } from "@fluentui/react-components";
 /**
  * Style definitions for the widget elements
  * @internal
  */
-var classNames = mergeStyleSets({
+var classNames = ({
     root: {
         display: "grid",
         padding: "1.25rem 2rem 1.25rem 2rem",
-        backgroundColor: tokens.colorNeutralBackground1,
         border: "1px solid var(--colorTransparentStroke)",
-        boxShadow: tokens.shadow4,
-        borderRadius: tokens.borderRadiusMedium,
-        gap: tokens.spacingHorizontalL,
         gridTemplateRows: "max-content 1fr max-content",
     },
     header: {
@@ -22,7 +16,6 @@ var classNames = mergeStyleSets({
         height: "max-content",
         "& div": {
             display: "grid",
-            gap: tokens.spacingHorizontalS,
             alignItems: "center",
             gridTemplateColumns: "min-content 1fr min-content",
         },
@@ -30,11 +23,7 @@ var classNames = mergeStyleSets({
             height: "1.5rem",
             width: "1.5rem",
         },
-        "& span": {
-            fontWeight: tokens.fontWeightSemibold,
-            lineHeight: tokens.lineHeightBase200,
-            fontSize: tokens.fontSizeBase200,
-        },
+        "& span": {},
     },
     footer: {
         "& button": {
@@ -83,11 +72,11 @@ var BaseWidget = /** @class */ (function (_super) {
     BaseWidget.prototype.render = function () {
         var _a = this.styling(), root = _a.root, header = _a.header, body = _a.body, footer = _a.footer;
         var showLoading = this.state.loading !== false && this.loading() !== undefined;
-        return (React.createElement("div", { className: mergeStyles(classNames.root, root) },
-            this.header() && (React.createElement("div", { className: mergeStyles(classNames.header, header) }, this.header())),
+        return (React.createElement("div", { className: (classNames.root, root) },
+            this.header() && (React.createElement("div", { className: (classNames.header, header) }, this.header())),
             showLoading ? (this.loading()) : (React.createElement(React.Fragment, null,
                 this.body() !== undefined && React.createElement("div", { className: body }, this.body()),
-                this.footer() !== undefined && (React.createElement("div", { className: mergeStyles(classNames.footer, footer) }, this.footer()))))));
+                this.footer() !== undefined && (React.createElement("div", { className: (classNames.footer, footer) }, this.footer()))))));
     };
     /**
      * Get data required by the widget

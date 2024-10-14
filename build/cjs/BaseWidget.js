@@ -3,21 +3,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseWidget = void 0;
 var tslib_1 = require("tslib");
 var react_1 = tslib_1.__importStar(require("react"));
-var react_2 = require("@fluentui/react");
-var react_components_1 = require("@fluentui/react-components");
 /**
  * Style definitions for the widget elements
  * @internal
  */
-var classNames = (0, react_2.mergeStyleSets)({
+var classNames = ({
     root: {
         display: "grid",
         padding: "1.25rem 2rem 1.25rem 2rem",
-        backgroundColor: react_components_1.tokens.colorNeutralBackground1,
         border: "1px solid var(--colorTransparentStroke)",
-        boxShadow: react_components_1.tokens.shadow4,
-        borderRadius: react_components_1.tokens.borderRadiusMedium,
-        gap: react_components_1.tokens.spacingHorizontalL,
         gridTemplateRows: "max-content 1fr max-content",
     },
     header: {
@@ -25,7 +19,6 @@ var classNames = (0, react_2.mergeStyleSets)({
         height: "max-content",
         "& div": {
             display: "grid",
-            gap: react_components_1.tokens.spacingHorizontalS,
             alignItems: "center",
             gridTemplateColumns: "min-content 1fr min-content",
         },
@@ -33,11 +26,7 @@ var classNames = (0, react_2.mergeStyleSets)({
             height: "1.5rem",
             width: "1.5rem",
         },
-        "& span": {
-            fontWeight: react_components_1.tokens.fontWeightSemibold,
-            lineHeight: react_components_1.tokens.lineHeightBase200,
-            fontSize: react_components_1.tokens.fontSizeBase200,
-        },
+        "& span": {},
     },
     footer: {
         "& button": {
@@ -86,11 +75,11 @@ var BaseWidget = /** @class */ (function (_super) {
     BaseWidget.prototype.render = function () {
         var _a = this.styling(), root = _a.root, header = _a.header, body = _a.body, footer = _a.footer;
         var showLoading = this.state.loading !== false && this.loading() !== undefined;
-        return (react_1.default.createElement("div", { className: (0, react_2.mergeStyles)(classNames.root, root) },
-            this.header() && (react_1.default.createElement("div", { className: (0, react_2.mergeStyles)(classNames.header, header) }, this.header())),
+        return (react_1.default.createElement("div", { className: (classNames.root, root) },
+            this.header() && (react_1.default.createElement("div", { className: (classNames.header, header) }, this.header())),
             showLoading ? (this.loading()) : (react_1.default.createElement(react_1.default.Fragment, null,
                 this.body() !== undefined && react_1.default.createElement("div", { className: body }, this.body()),
-                this.footer() !== undefined && (react_1.default.createElement("div", { className: (0, react_2.mergeStyles)(classNames.footer, footer) }, this.footer()))))));
+                this.footer() !== undefined && (react_1.default.createElement("div", { className: (classNames.footer, footer) }, this.footer()))))));
     };
     /**
      * Get data required by the widget

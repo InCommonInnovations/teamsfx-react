@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-import { mergeStyles, mergeStyleSets } from "@fluentui/react";
-
 /**
  * Interface for defining the class names of widget elements
  */
@@ -31,7 +29,7 @@ export interface IWidgetClassNames {
  * Style definitions for the widget elements
  * @internal
  */
-const classNames: IWidgetClassNames = mergeStyleSets({
+const classNames: IWidgetClassNames = ({
   root: {
     display: "grid",
     padding: "1.25rem 2rem 1.25rem 2rem",
@@ -58,7 +56,7 @@ const classNames: IWidgetClassNames = mergeStyleSets({
       width: "fit-content",
     },
   },
-});
+}) as any;
 
 /**
  * Interface for defining the state of the BaseWidget class
@@ -96,9 +94,9 @@ export class BaseWidget<P, S> extends Component<P, S & BaseWidgetState> {
     const { root, header, body, footer } = this.styling();
     const showLoading = this.state.loading !== false && this.loading() !== undefined;
     return (
-      <div className={mergeStyles(classNames.root, root)}>
+      <div className={(classNames.root, root)}>
         {this.header() && (
-          <div className={mergeStyles(classNames.header, header)}>{this.header()}</div>
+          <div className={(classNames.header, header)}>{this.header()}</div>
         )}
         {showLoading ? (
           this.loading()
@@ -106,7 +104,7 @@ export class BaseWidget<P, S> extends Component<P, S & BaseWidgetState> {
           <>
             {this.body() !== undefined && <div className={body}>{this.body()}</div>}
             {this.footer() !== undefined && (
-              <div className={mergeStyles(classNames.footer, footer)}>{this.footer()}</div>
+              <div className={(classNames.footer, footer)}>{this.footer()}</div>
             )}
           </>
         )}

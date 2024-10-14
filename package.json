@@ -62,7 +62,6 @@
     "typescript": "latest"
   },
   "peerDependencies": {
-    "@fluentui/react-components": "^9.15.0",
     "@microsoft/microsoft-graph-client": "^3.0.7",
     "@microsoft/teams-js": "^2.19.0",
     "@microsoft/teamsfx": "^2.2.2",
@@ -71,8 +70,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "@fluentui/react": "^8.121.4"
   }
 }
