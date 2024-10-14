@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 
-import { mergeStyles } from "@fluentui/react";
-
 /**
  * Returns the CSS class name for the dashboard.
  * @returns The CSS class name for the dashboard.
  * @internal
  */
 function dashboardStyle(isMobile?: boolean) {
-  return mergeStyles({
+  return ({
     display: "grid",
     gap: "20px",
     padding: "20px",
@@ -97,7 +95,7 @@ export class BaseDashboard<P, S> extends Component<P, S & BaseDashboardState> {
     return (
       <div
         ref={this.ref}
-        className={mergeStyles(dashboardStyle(this.state.isMobile), this.styling())}
+        className={(dashboardStyle(this.state.isMobile), this.styling())}
       >
         {this.layout()}
       </div>

@@ -15,7 +15,6 @@ const getTheme = (): string | undefined => {
  * properties:
  *  - inTeams: boolean = true if inside Microsoft Teams
  *  - fullscreen: boolean = true if in full screen mode
- *  - theme: Fluent UI Theme
  *  - themeString: string - representation of the theme (default, dark or contrast)
  *  - context - the Microsoft Teams JS SDK context
  * methods:

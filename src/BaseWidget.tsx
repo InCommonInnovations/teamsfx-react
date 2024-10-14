@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import { mergeStyles, mergeStyleSets } from "@fluentui/react";
-import { tokens } from "@fluentui/react-components";
 
 /**
  * Interface for defining the class names of widget elements
@@ -36,11 +35,7 @@ const classNames: IWidgetClassNames = mergeStyleSets({
   root: {
     display: "grid",
     padding: "1.25rem 2rem 1.25rem 2rem",
-    backgroundColor: tokens.colorNeutralBackground1,
     border: "1px solid var(--colorTransparentStroke)",
-    boxShadow: tokens.shadow4,
-    borderRadius: tokens.borderRadiusMedium,
-    gap: tokens.spacingHorizontalL,
     gridTemplateRows: "max-content 1fr max-content",
   },
   header: {
@@ -48,7 +43,6 @@ const classNames: IWidgetClassNames = mergeStyleSets({
     height: "max-content",
     "& div": {
       display: "grid",
-      gap: tokens.spacingHorizontalS,
       alignItems: "center",
       gridTemplateColumns: "min-content 1fr min-content",
     },
@@ -57,9 +51,6 @@ const classNames: IWidgetClassNames = mergeStyleSets({
       width: "1.5rem",
     },
     "& span": {
-      fontWeight: tokens.fontWeightSemibold,
-      lineHeight: tokens.lineHeightBase200,
-      fontSize: tokens.fontSizeBase200,
     },
   },
   footer: {
