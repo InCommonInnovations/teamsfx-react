@@ -1,13 +1,10 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT license.
+import 'react-native-get-random-values';
 import { useEffect, useState } from "react";
 import { unstable_batchedUpdates as batchedUpdates } from "react-dom";
-import { app, pages } from "@microsoft/teams-js";
-const getTheme = (): string | undefined => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const theme = urlParams.get("theme");
-  return theme == null ? undefined : theme;
-};
+import { app } from "@microsoft/teams-js";
+
 /**
  * Microsoft Teams React hook
  * @param options optional options
@@ -27,7 +24,6 @@ export function useTeams(options?: {
   {
     inTeams?: boolean;
     fullScreen?: boolean;
-    themeString: string;
     context?: app.Context;
     loading?: boolean;
   }
@@ -35,10 +31,6 @@ export function useTeams(options?: {
   const [loading, setLoading] = useState<boolean | undefined>(undefined);
   const [inTeams, setInTeams] = useState<boolean | undefined>(undefined);
   const [fullScreen, setFullScreen] = useState<boolean | undefined>(undefined);
-  const [themeString, setThemeString] = useState<string>("default");
-  const [initialTheme] = useState<string | undefined>(
-    options && options.initialTheme ? options.initialTheme : getTheme()
-  );
   const [context, setContext] = useState<app.Context | undefined>(undefined);
 
   useEffect(() => {
@@ -54,9 +46,6 @@ export function useTeams(options?: {
               setContext(context);
               setFullScreen(context.page.isFullScreen);
             });
-            pages.registerFullScreenHandler((isFullScreen) => {
-              setFullScreen(isFullScreen);
-            });
             setLoading(false);
           })
           .catch(() => {
@@ -71,6 +60,6 @@ export function useTeams(options?: {
   }, []);
 
   return [
-    { inTeams, fullScreen, context, themeString, loading },
+    { inTeams, fullScreen, context, loading },
   ];
 }

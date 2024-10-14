@@ -23,10 +23,6 @@ export type TeamsFxContext = {
    */
   inTeams?: boolean;
   /**
-   * Teams theme string.
-   */
-  themeString: string;
-  /**
    * Teams context object.
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
